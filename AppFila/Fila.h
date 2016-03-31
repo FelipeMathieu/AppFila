@@ -1,11 +1,13 @@
 #pragma once
 
 #include<iostream>
+#include"Merge.h"
 
 using namespace std;
 
 class Fila
 {
+private:
 	int tamanho;
 	int *dado;
 	int primeiro;
@@ -21,6 +23,6 @@ public:
 	void insereFila(int e);
 	void removeFila();
 	void imprimeFila();
-	//N.
+	void mergeFila(Fila *f2);
 };
 

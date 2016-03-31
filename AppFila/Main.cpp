@@ -1,11 +1,10 @@
 #include "Fila.h"
-#include "Merge.h"
 
 void main(void)
 {
 	Fila *fila = NULL;
 	Fila *fila2 = NULL;
-	int t;
+	int t, t2;
 	int e;
 
 	cout << "Informe o tamanho da sua primeira fila: ";
@@ -22,11 +21,11 @@ void main(void)
 	}
 	
 	cout << "Informe o tamanho da sua segunda fila: ";
-	cin >> t;
+	cin >> t2;
 
-	fila2 = fila2->criaFila(t);
+	fila2 = fila2->criaFila(t2);
 
-	for (int i = 0; i < t; i++)
+	for (int i = 0; i < t2; i++)
 	{
 		cout << "Informe o elemento " << i + 1 << " de sua fila: ";
 		cin >> e;
@@ -36,4 +35,8 @@ void main(void)
 
 	fila->imprimeFila();
 	fila2->imprimeFila();
+	cout << endl;
+	
+	fila->mergeFila(fila2);
+	//free(fila);
 }

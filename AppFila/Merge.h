@@ -11,6 +11,6 @@ public:
 	Merge();
 	~Merge();
 
-	void merge(Fila *f1, Fila *f2, const int esquerda, const int meio, const int direita);
+	static int *merge(int *v1, int tamanhoV1, int *v2, int tamanhoV2);
 };
 

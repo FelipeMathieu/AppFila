@@ -71,14 +71,37 @@ void Fila::removeFila()
 void Fila::imprimeFila()
 {
 	int count, i;
-	for (count = 0, i = this->primeiro; count < this->nItens; count++)
+	if (this->nItens > 0)
 	{
-		cout << this->dado[i++] << " |";
-		if (i == this->tamanho)
+		for (count = 0, i = this->primeiro; count < this->nItens; count++)
 		{
-			i = 0;
+			cout << this->dado[i++] << " |";
+			if (i == this->tamanho)
+			{
+				i = 0;
+			}
 		}
+		cout << endl;
 	}
-	cout << endl;
+	else
+	{
+		cout << "Fila vazia!" << endl;
+	}
 }
-//N.
+void Fila::mergeFila(Fila *f2)
+{
+	Fila *vF = NULL;
+	int j = 0;
+
+	vF = vF->criaFila(this->tamanho + f2->tamanho);
+
+	vF->nItens = this->nItens + f2->nItens;
+	vF->ultimo = this->ultimo + f2->ultimo;
+
+	vF->dado = Merge::merge(this->dado, this->tamanho, f2->dado, f2->tamanho);
+
+	vF->imprimeFila();
+	free(f2);
+	//free(vF);
+}
+
