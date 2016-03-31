@@ -6,7 +6,6 @@ Fila::Fila()
 Fila::~Fila()
 {
 }
-
 Fila *Fila::criaFila(int t)
 {
 	Fila *f;
@@ -20,7 +19,6 @@ Fila *Fila::criaFila(int t)
 	
 	return f;
 }
-
 int Fila::verificaFila()
 {
 	if (this->nItens == 0)
@@ -37,7 +35,6 @@ int Fila::verificaFila()
 		return 0;
 	}
 }
-
 void Fila::insereFila(int e)
 {
 	if (!this->verificaFila())
@@ -47,7 +44,6 @@ void Fila::insereFila(int e)
 		this->nItens++;
 	}
 }
-
 void Fila::removeFila()
 {
 	int aux = this->dado[this->primeiro++];
@@ -67,7 +63,6 @@ void Fila::removeFila()
 		cout << "Elemento " << aux << " removido com sucesso!" << endl;
 	}
 }
-
 void Fila::imprimeFila()
 {
 	int count, i;
@@ -98,11 +93,15 @@ void Fila::mergeFila(Fila *f2)
 	vF->nItens = this->nItens + f2->nItens;
 	vF->ultimo = this->ultimo + f2->ultimo;
 
-	vF->dado = Merge::merge(this->dado, this->tamanho, f2->dado, f2->tamanho);
+	vF->dado = Merge::mergeFila(this->dado, this->tamanho, f2->dado, f2->tamanho);
 
 	vF->imprimeFila();
 	free(f2);
 	//free(vF);
 }
+void Fila::merge()
+{
+	this->dado = Merge::merge(this->dado, this->primeiro, (this->tamanho)/2, this->ultimo);
 
-//
+	this->imprimeFila();
+}

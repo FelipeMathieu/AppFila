@@ -24,6 +24,7 @@ public:
 	void removeFila();
 	void imprimeFila();
 	void mergeFila(Fila *f2);
+	void merge();
 };
 //
 

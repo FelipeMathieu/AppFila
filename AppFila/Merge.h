@@ -11,7 +11,8 @@ public:
 	Merge();
 	~Merge();
 
-	static int *merge(int *v1, int tamanhoV1, int *v2, int tamanhoV2);
+	static int *mergeFila(int *v1, int tamanhoV1, int *v2, int tamanhoV2);
+	static int *merge(int *v, int low, int mid, int high);
 };
 //
 

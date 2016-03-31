@@ -36,7 +36,10 @@ void main(void)
 	fila->imprimeFila();
 	fila2->imprimeFila();
 	cout << endl;
-	
+
+	fila->merge();
+	fila2->merge();
+	cout << endl;
 	fila->mergeFila(fila2);
 	//free(fila);
 }
