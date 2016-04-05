@@ -83,25 +83,46 @@ void Fila::imprimeFila()
 		cout << "Fila vazia!" << endl;
 	}
 }
-void Fila::mergeFila(Fila *f2)
+Fila *Fila::mergeFila(Fila *f2)
 {
-	Fila *vF = NULL;
-	int j = 0;
+	int i, j, k;
 
-	vF = vF->criaFila(this->tamanho + f2->tamanho);
+	Fila *v3 = NULL;
 
-	vF->nItens = this->nItens + f2->nItens;
-	vF->ultimo = this->ultimo + f2->ultimo;
+	v3 = v3->criaFila((this->tamanho + f2->tamanho));
 
-	vF->dado = Merge::mergeFila(this->dado, this->tamanho, f2->dado, f2->tamanho);
+	i = 0;
+	j = 0;
+	k = 0;
 
-	vF->imprimeFila();
-	free(f2);
-	//free(vF);
-}
-void Fila::merge()
-{
-	this->dado = Merge::merge(this->dado, this->primeiro, (this->tamanho)/2, this->ultimo);
+	while (i < this->tamanho && j < f2->tamanho)
+	{
+		if (this->dado[i] <= f2->dado[j])
+		{
+			v3->insereFila(this->dado[i]);
+			i++;
+		}
+		else
+		{
+			v3->insereFila(f2->dado[j]);
+			j++;
+		}
+		k++;
+	}
 
-	this->imprimeFila();
+	while (i < this->tamanho)
+	{
+		v3->insereFila(this->dado[i]);
+		i++;
+		k++;
+	}
+
+	while (j < f2->tamanho)
+	{
+		v3->insereFila(f2->dado[j]);
+		j++;
+		k++;
+	}
+
+	return v3;
 }

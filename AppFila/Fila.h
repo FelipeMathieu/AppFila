@@ -1,7 +1,6 @@
 #pragma once
 
 #include<iostream>
-#include"Merge.h"
 
 using namespace std;
 
@@ -23,8 +22,7 @@ public:
 	void insereFila(int e);
 	void removeFila();
 	void imprimeFila();
-	void mergeFila(Fila *f2);
-	void merge();
+	Fila *mergeFila(Fila *f2);
 };
 //
 

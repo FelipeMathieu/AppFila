@@ -4,6 +4,7 @@ void main(void)
 {
 	Fila *fila = NULL;
 	Fila *fila2 = NULL;
+	Fila *fila3 = NULL;
 	int t, t2;
 	int e;
 
@@ -37,10 +38,11 @@ void main(void)
 	fila2->imprimeFila();
 	cout << endl;
 
-	fila->merge();
-	fila2->merge();
+//	fila->merge();
+//	fila2->merge();
 	cout << endl;
-	fila->mergeFila(fila2);
+	fila3 = fila->mergeFila(fila2);
+	fila3->imprimeFila();
 	//free(fila);
 }
 //
